@@ -10,7 +10,7 @@
 body{
     width: 100%;
     height: 100vh;
-    background: linear-gradient(-30deg, #131313, #414242);
+    background: linear-gradient(30deg, #378115, #2ac4c4);
 }
 
 .container{

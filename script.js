@@ -36,29 +36,16 @@ addBtn.addEventListener('click', () => {
             toDoList.appendChild(li)
             inputBox.value = '';
         }
-        saveData();
     }
 });
 
 toDoList.addEventListener('click', (e) => {
-    if (e.target.innerHTML === 'Del') {
+    if (e.target.innerHTML === 'Del')
         toDoList.removeChild(e.target.parentElement);
-        saveData();
-    }
     if (e.target.innerHTML === 'Edit') {
         inputBox.value = e.target.previousElementSibling.previousElementSibling.innerHTML;
         inputBox.focus();
         addBtn.value = 'Edit';
         editToDo = e;
-        saveData();
     }
 });
-
-function saveData() {
-    localStorage.setItem('data', toDoList.innerHTML);
-}
-
-function getData() {
-    toDoList.innerHTML = localStorage.getItem('data');
-}
-getData()

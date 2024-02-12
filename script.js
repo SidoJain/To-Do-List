@@ -10,7 +10,7 @@ addBtn.addEventListener('click', () => {
         alert('You must write something in the To Do.');
 
     else {
-        if (addBtn.value === 'Edit') {
+        if (addBtn.value === 'Save') {
             editToDo.target.previousElementSibling.previousElementSibling.innerHTML = inputText;
             addBtn.value = 'Add';
             inputBox.value = '';
@@ -48,7 +48,7 @@ toDoList.addEventListener('click', (e) => {
     if (e.target.innerHTML === 'Edit') {
         inputBox.value = e.target.previousElementSibling.previousElementSibling.innerHTML;
         inputBox.focus();
-        addBtn.value = 'Edit';
+        addBtn.value = 'Save';
         editToDo = e;
         saveData();
     }

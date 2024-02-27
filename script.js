@@ -56,7 +56,7 @@ function funcMain() {
             editBtn.classList.add('editBtn');
             li.appendChild(editBtn);
 
-            toDoList.appendChild(li)
+            toDoList.appendChild(li);
             inputBox.value = '';
         }
         saveData();

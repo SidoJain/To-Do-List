@@ -5,6 +5,29 @@ const toDoList = document.getElementById('toDoList');
 let editToDo = null;
 
 addBtn.addEventListener('click', () => {
+    funcMain();
+});
+
+inputBox.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter')
+        funcMain();
+})
+
+toDoList.addEventListener('click', (e) => {
+    if (e.target.innerHTML === 'Del') {
+        toDoList.removeChild(e.target.parentElement);
+        saveData();
+    }
+    if (e.target.innerHTML === 'Edit') {
+        inputBox.value = e.target.previousElementSibling.previousElementSibling.innerHTML;
+        inputBox.focus();
+        addBtn.value = 'Save';
+        editToDo = e;
+        saveData();
+    }
+});
+
+function funcMain() {
     const inputText = inputBox.value.trim();
     if (inputText.length === 0)
         alert('You must write something in the To Do.');
@@ -38,21 +61,7 @@ addBtn.addEventListener('click', () => {
         }
         saveData();
     }
-});
-
-toDoList.addEventListener('click', (e) => {
-    if (e.target.innerHTML === 'Del') {
-        toDoList.removeChild(e.target.parentElement);
-        saveData();
-    }
-    if (e.target.innerHTML === 'Edit') {
-        inputBox.value = e.target.previousElementSibling.previousElementSibling.innerHTML;
-        inputBox.focus();
-        addBtn.value = 'Save';
-        editToDo = e;
-        saveData();
-    }
-});
+}
 
 function saveData() {
     localStorage.setItem('data', toDoList.innerHTML);
